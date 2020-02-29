@@ -79,16 +79,19 @@ namespace AutomationTest.Features
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
         [NUnit.Framework.CategoryAttribute("recent-regression")]
+        [NUnit.Framework.CategoryAttribute("home")]
         public virtual void BestSellerTitleShouldBeDisplayed()
         {
             string[] tagsOfScenario = new string[] {
                     "smoke",
                     "regression",
-                    "recent-regression"};
+                    "recent-regression",
+                    "home"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Best seller title should be displayed", null, new string[] {
                         "smoke",
                         "regression",
-                        "recent-regression"});
+                        "recent-regression",
+                        "home"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -127,16 +130,19 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
         [NUnit.Framework.CategoryAttribute("recent-regression")]
+        [NUnit.Framework.CategoryAttribute("home")]
         public virtual void PerfomeSearchUsingExcelInputSearchTerm()
         {
             string[] tagsOfScenario = new string[] {
                     "smoke",
                     "regression",
-                    "recent-regression"};
+                    "recent-regression",
+                    "home"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perfome search using excel input search term", null, new string[] {
                         "smoke",
                         "regression",
-                        "recent-regression"});
+                        "recent-regression",
+                        "home"});
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
