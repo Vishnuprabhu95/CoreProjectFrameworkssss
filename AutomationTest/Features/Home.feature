@@ -9,7 +9,7 @@ Scenario: Best seller title should be displayed
 	When the user clicks best seller tab
 	Then the "Amazon Bestseller" title displays in best seller tab
 
-@smoke @regression @recent-regression @home
+@smoke @regression @recent-regression @home2 
 Scenario: Perfome search using excel input search term
 	Given the user is on application home page
 	When the user performs search
