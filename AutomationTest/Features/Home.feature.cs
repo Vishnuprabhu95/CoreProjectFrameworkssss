@@ -130,19 +130,19 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
         [NUnit.Framework.CategoryAttribute("recent-regression")]
-        [NUnit.Framework.CategoryAttribute("home")]
+        [NUnit.Framework.CategoryAttribute("home2")]
         public virtual void PerfomeSearchUsingExcelInputSearchTerm()
         {
             string[] tagsOfScenario = new string[] {
                     "smoke",
                     "regression",
                     "recent-regression",
-                    "home"};
+                    "home2"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perfome search using excel input search term", null, new string[] {
                         "smoke",
                         "regression",
                         "recent-regression",
-                        "home"});
+                        "home2"});
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
