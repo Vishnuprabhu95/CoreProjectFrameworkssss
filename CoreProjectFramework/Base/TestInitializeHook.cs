@@ -41,45 +41,52 @@ namespace AutoFramework.Base
 
             string EnvBrw = Environment.GetEnvironmentVariable("Browser");
             //string URL = Environment.GetEnvironmentVariable("url");
-
-            switch (EnvBrw)
+            if (EnvBrw == null)
             {
-                case "Chrome":
-                    //Open the browser
-                    OpenBrowser(BrowserType.Chrome);
-                    Console.WriteLine("Chrome");
-                    break;
-                case "Firefox":
-                    //Open the browser
-                    OpenBrowser(BrowserType.Firefox);
-                    Console.WriteLine("Firefox");
-                    break;
-                //default:
-                //    //Open the browser
-                //    OpenBrowser(BrowserType.Chrome);
-                //    Console.WriteLine("default browser");
-                //    break;
+                switch (Settings.BrowserUsed)
+                {
+                    case "Chrome":
+                        //Open the browser
+                        OpenBrowser(BrowserType.Chrome);
+                        Console.WriteLine("Chrome");
+                        break;
+                    case "Firefox":
+                        //Open the browser
+                        OpenBrowser(BrowserType.Firefox);
+                        Console.WriteLine("Firefox");
+                        break;
+                        //default:
+                        //    //Open the browser
+                        //    OpenBrowser(BrowserType.Chrome);
+                        //    Console.WriteLine("default browser");
+                        //    break;
+                }
             }
-
-
-            switch (Settings.BrowserUsed)
+            else
             {
-                case "Chrome":
-                    //Open the browser
-                    OpenBrowser(BrowserType.Chrome);
-                    Console.WriteLine("Chrome");
-                    break;
-                case "Firefox":
-                    //Open the browser
-                    OpenBrowser(BrowserType.Firefox);
-                    Console.WriteLine("Firefox");
-                    break;
-                //default:
-                //    //Open the browser
-                //    OpenBrowser(BrowserType.Chrome);
-                //    Console.WriteLine("default browser");
-                //    break;
+                switch (EnvBrw)
+                {
+                    case "Chrome":
+                        //Open the browser
+                        OpenBrowser(BrowserType.Chrome);
+                        Console.WriteLine("Chrome");
+                        break;
+                    case "Firefox":
+                        //Open the browser
+                        OpenBrowser(BrowserType.Firefox);
+                        Console.WriteLine("Firefox");
+                        break;
+                        //default:
+                        //    //Open the browser
+                        //    OpenBrowser(BrowserType.Chrome);
+                        //    Console.WriteLine("default browser");
+                        //    break;
+                }
             }
+            
+
+
+            
 
 
         }

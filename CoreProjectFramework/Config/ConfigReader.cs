@@ -24,7 +24,7 @@ namespace AutoFramework.Config
 
             IConfigurationRoot configurationRoot = builder.Build();
 
-            Settings.Exetype = configurationRoot.GetSection("testSettings").Get<TestSettings>().exetype;
+            Settings.Exetype = configurationRoot.GetSection("testSettings").Get<TestSettings>().Type;
 
             switch (Settings.Exetype)
             {
@@ -32,10 +32,10 @@ namespace AutoFramework.Config
                     Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
                     Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
                     break;
-                default:
-                    Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
-                    Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
-                    break;
+                //default:
+                //    Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
+                //    Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
+                //    break;
             }
 
             //Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
