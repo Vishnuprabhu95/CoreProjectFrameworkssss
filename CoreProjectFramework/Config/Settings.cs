@@ -16,6 +16,8 @@ namespace AutoFramework.Config
 
         public static string BrowserUsed { get; set; }
 
+        public static string Exetype { get; set; }
+
         //public static string IsLog { get; set; }
         //public static string LogPath { get; set; }
     }

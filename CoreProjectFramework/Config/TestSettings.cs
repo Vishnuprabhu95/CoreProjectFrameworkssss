@@ -15,5 +15,8 @@ namespace AutoFramework.Config
         [JsonProperty("browser")]
         public string browser { get; set; }
 
+        [JsonProperty("type")]
+        public string exetype { get; set; }
+
     }
 }

@@ -24,37 +24,52 @@ namespace AutoFramework.Config
 
             IConfigurationRoot configurationRoot = builder.Build();
 
-            Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
-            Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
+            Settings.Exetype = configurationRoot.GetSection("testSettings").Get<TestSettings>().exetype;
 
+            switch (Settings.Exetype)
+            {
+                case ("web"):
+                    Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
+                    Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
+                    break;
+                default:
+                    Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
+                    Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
+                    break;
+            }
 
+            //Settings.AUT = configurationRoot.GetSection("testSettings").Get<TestSettings>().AUT;
 
-
-            //Settings.AUT = TestConfiguration.ASettings.TestSettings["test"].AUT;
-
-            //Settings.TestType = TestConfiguration.ASettings.TestSettings["test"].Testtype;
-
-            //Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), TestConfiguration.ASettings.TestSettings["test"].Browser);
-
-            //XPathItem aut;
-            //XPathItem testType;
-
-            //    //Fetches data from GlobalConfig xml file for framework  configuration
-
-            //    string strFileName = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
-            //    FileStream stream = new FileStream(strFileName, FileMode.Open);
-
-            //    XPathDocument document = new XPathDocument(stream);
-            //    XPathNavigator navigator = document.CreateNavigator();
-
-            //    aut = navigator.SelectSingleNode("AutoFramework/RunSettings/AUT");
-            //    testType = navigator.SelectSingleNode("AutoFramework/RunSettings/TestType");
-
-            //Settings.AUT = aut.Value.ToString();
-            //Settings.TestType = testType.Value.ToString();
-
+            //Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
 
         }
+
+
+        //Settings.AUT = TestConfiguration.ASettings.TestSettings["test"].AUT;
+
+        //Settings.TestType = TestConfiguration.ASettings.TestSettings["test"].Testtype;
+
+        //Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), TestConfiguration.ASettings.TestSettings["test"].Browser);
+
+        //XPathItem aut;
+        //XPathItem testType;
+
+        //    //Fetches data from GlobalConfig xml file for framework  configuration
+
+        //    string strFileName = Environment.CurrentDirectory.ToString() + "\\Config\\GlobalConfig.xml";
+        //    FileStream stream = new FileStream(strFileName, FileMode.Open);
+
+        //    XPathDocument document = new XPathDocument(stream);
+        //    XPathNavigator navigator = document.CreateNavigator();
+
+        //    aut = navigator.SelectSingleNode("AutoFramework/RunSettings/AUT");
+        //    testType = navigator.SelectSingleNode("AutoFramework/RunSettings/TestType");
+
+        //Settings.AUT = aut.Value.ToString();
+        //Settings.TestType = testType.Value.ToString();
+
+
+
 
 
 
