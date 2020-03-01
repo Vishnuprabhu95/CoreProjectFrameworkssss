@@ -42,6 +42,8 @@ namespace AutoFramework.Config
 
             //Settings.BrowserUsed = configurationRoot.GetSection("testSettings").Get<TestSettings>().browser;
 
+           
+
         }
 
 

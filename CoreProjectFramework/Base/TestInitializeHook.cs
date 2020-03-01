@@ -36,10 +36,51 @@ namespace AutoFramework.Base
             ConfigReader.SetFrameworkSettings();
 
             //Set Log Helper
-           //LogHelpers.CreateLogFile();
+            //LogHelpers.CreateLogFile();
 
-            //Open the browser
-            OpenBrowser(BrowserType.Chrome);
+
+            string EnvBrw = Environment.GetEnvironmentVariable("Browser");
+            //string URL = Environment.GetEnvironmentVariable("url");
+
+            switch (EnvBrw)
+            {
+                case "Chrome":
+                    //Open the browser
+                    OpenBrowser(BrowserType.Chrome);
+                    Console.WriteLine("Chrome");
+                    break;
+                case "Firefox":
+                    //Open the browser
+                    OpenBrowser(BrowserType.Firefox);
+                    Console.WriteLine("Firefox");
+                    break;
+                //default:
+                //    //Open the browser
+                //    OpenBrowser(BrowserType.Chrome);
+                //    Console.WriteLine("default browser");
+                //    break;
+            }
+
+
+            switch (Settings.BrowserUsed)
+            {
+                case "Chrome":
+                    //Open the browser
+                    OpenBrowser(BrowserType.Chrome);
+                    Console.WriteLine("Chrome");
+                    break;
+                case "Firefox":
+                    //Open the browser
+                    OpenBrowser(BrowserType.Firefox);
+                    Console.WriteLine("Firefox");
+                    break;
+                //default:
+                //    //Open the browser
+                //    OpenBrowser(BrowserType.Chrome);
+                //    Console.WriteLine("default browser");
+                //    break;
+            }
+
 
         }
 
@@ -79,9 +120,9 @@ namespace AutoFramework.Base
             //_parallelConfig.Driver = new RemoteWebDriver(new Uri("https://localhost::4444/wd/hub"), cap);
         }
 
-      
 
+ 
 
-
+        
     }
 }
