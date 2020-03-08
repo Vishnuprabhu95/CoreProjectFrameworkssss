@@ -13,10 +13,10 @@ namespace AutoFramework.Base
 
         private readonly IWebDriver _driver;
 
-        public Browser(IWebDriver driver)
-        {
-            _driver = driver;
-        }
+        //public Browser(IWebDriver driver)
+        //{
+        //    _driver = driver;
+        //}
 
         public BrowserType Type { get; set; }
 

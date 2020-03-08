@@ -37,10 +37,10 @@ namespace AutoFramework.Base
 
             //return (TPage)Activator.CreateInstance(typeof(TPage));
 
-            TPage pageInstance = new TPage()
-            {
-                _driver = DriverContext.Driver
-            };
+            TPage pageInstance = new TPage();
+            //{
+            //    _driver = DriverContext.Driver
+            //};
 
         //////PageFactory.InitElements(DriverContext.Driver, pageInstance);
 

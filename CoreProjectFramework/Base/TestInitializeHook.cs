@@ -100,12 +100,12 @@ namespace AutoFramework.Base
                 case BrowserType.InternetExplorer:
                     DriverContext.Driver = new InternetExplorerDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.Firefox:
                     DriverContext.Driver = new FirefoxDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.Chrome:
                     ////DesiredCapabilities cap = new DesiredCapabilities();
@@ -115,12 +115,12 @@ namespace AutoFramework.Base
                     ////var profile = new ChromeProfile();                         
 
                     DriverContext.Driver = new ChromeDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 default:
                     DriverContext.Driver = new ChromeDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
+                    //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
             }
 
