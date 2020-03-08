@@ -11,11 +11,11 @@ namespace AutomationTest.Scenarios.NewRelease.StepDefinition
     [Binding]
     public class NewReleaseSteps : BaseStep
     {
-        //[When(@"the user clicks new release tab")]
-        //public void WhenTheUserClicksNewReleaseTab()
-        //{
-        //     _parallelConfig.CurrentPage =  _parallelConfig.CurrentPage.As<HomePage>().ClickNewReleaseEle();
-        //}
+        [When(@"the user clicks new release tab")]
+        public void WhenTheUserClicksNewReleaseTab()
+        {
+            CurrentPage.As<HomePage>().ClickNewReleaseEle();
+        }
 
 
         //private readonly ParallelConfig _parallelConfig;

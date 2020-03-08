@@ -3,7 +3,7 @@
 	As a math idiot
 	I want to be told the sum of two numbers
 
- @smoke @regression @recent-regression @newrelease
+ @ignore @smoke @regression @recent-regression @newrelease
 Scenario: New release title should be displayed
 	Given the user is on application home page
 	When the user clicks new release tab

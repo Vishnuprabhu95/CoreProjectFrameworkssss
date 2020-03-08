@@ -76,6 +76,7 @@ namespace AutomationTest.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("New release title should be displayed")]
+        [NUnit.Framework.CategoryAttribute("ignore")]
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
         [NUnit.Framework.CategoryAttribute("recent-regression")]
@@ -83,11 +84,13 @@ namespace AutomationTest.Features
         public virtual void NewReleaseTitleShouldBeDisplayed()
         {
             string[] tagsOfScenario = new string[] {
+                    "ignore",
                     "smoke",
                     "regression",
                     "recent-regression",
                     "newrelease"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New release title should be displayed", null, new string[] {
+                        "ignore",
                         "smoke",
                         "regression",
                         "recent-regression",
