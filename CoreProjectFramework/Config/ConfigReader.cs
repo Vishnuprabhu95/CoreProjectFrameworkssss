@@ -19,7 +19,7 @@ namespace AutoFramework.Config
         {
 
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
+                .SetBasePath("C:\\dev\\CoreProjectFramework\\AutomationTest\\")
                 .AddJsonFile("appsettings.json");
 
             IConfigurationRoot configurationRoot = builder.Build();

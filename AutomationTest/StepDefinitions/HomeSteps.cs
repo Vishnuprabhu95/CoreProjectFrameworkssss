@@ -1,8 +1,8 @@
 ﻿using AutoFramework.Base;
 using AutoFramework.Helpers;
-using NUnit.Framework;
 using TechTalk.SpecFlow;
 using AutomationTest.Pages;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AutomationTest.Scenarios.Home.StepDefinition
 {
@@ -38,7 +38,7 @@ namespace AutomationTest.Scenarios.Home.StepDefinition
         [Then(@"the results page displayed")]
         public void ThenTheResultsPageDisplayed()
         {
-            CurrentPage.As<HomePage>().NoResultEleDisplayed().Equals(true);
+            Assert.IsTrue(CurrentPage.As<HomePage>().NoResultEleDisplayed().Equals(true));
         }
 
     }

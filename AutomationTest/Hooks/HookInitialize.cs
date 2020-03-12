@@ -182,7 +182,7 @@ namespace AutomationTest
                 
             }
 
-            var htmlReporter = new ExtentHtmlReporter(@"C:\\dev\\ExtentReport\\ER--"+ _logFileName + "\\");
+            var htmlReporter = new ExtentHtmlReporter(@"C:\\dev\\CoreProjectFramework\\ExtentReport\\ER--"+ _logFileName + "\\");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             //Attach report to reporter
             extent = new AventStack.ExtentReports.ExtentReports();

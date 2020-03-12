@@ -19,8 +19,8 @@ namespace AutomationTest.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Home")]
+    [TechTalk.SpecRun.FeatureAttribute("Home", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
+        "f two numbers", SourceFile="Features\\Homes.feature", SourceLine=0)]
     public partial class HomeFeature
     {
         
@@ -28,10 +28,10 @@ namespace AutomationTest.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Home.feature"
+#line 1 "Homes.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -40,19 +40,18 @@ namespace AutomationTest.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public virtual void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -61,7 +60,6 @@ namespace AutomationTest.Features
         public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
         public virtual void ScenarioStart()
@@ -74,12 +72,11 @@ namespace AutomationTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Best seller title should be displayed")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        [NUnit.Framework.CategoryAttribute("regression")]
-        [NUnit.Framework.CategoryAttribute("recent-regression")]
-        [NUnit.Framework.CategoryAttribute("home")]
+        [TechTalk.SpecRun.ScenarioAttribute("Best seller title should be displayed", new string[] {
+                "smoke",
+                "regression",
+                "recent-regression",
+                "home"}, SourceLine=6)]
         public virtual void BestSellerTitleShouldBeDisplayed()
         {
             string[] tagsOfScenario = new string[] {
@@ -125,12 +122,11 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Perfome search using excel input search term")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        [NUnit.Framework.CategoryAttribute("regression")]
-        [NUnit.Framework.CategoryAttribute("recent-regression")]
-        [NUnit.Framework.CategoryAttribute("home2")]
+        [TechTalk.SpecRun.ScenarioAttribute("Perfome search using excel input search term", new string[] {
+                "smoke",
+                "regression",
+                "recent-regression",
+                "home2"}, SourceLine=12)]
         public virtual void PerfomeSearchUsingExcelInputSearchTerm()
         {
             string[] tagsOfScenario = new string[] {
@@ -174,6 +170,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.TestRunCleanup()]
+        public virtual void TestRunCleanup()
+        {
+            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }

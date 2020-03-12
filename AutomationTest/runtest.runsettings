@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <SpecRun>
+    <Profile>default.srprofile</Profile>
+    <ReportFile>SpecflowReport_{now:yyyy-MM-dd-HHmmss}.html</ReportFile>
+    <GenerateSpecRunTrait>false</GenerateSpecRunTrait>
+    <GenerateFeatureTrait>false</GenerateFeatureTrait>
+  </SpecRun>
+</RunSettings>
