@@ -225,7 +225,7 @@ namespace AutomationTest
                                                     ScenarioContext.Current.ScenarioInfo.Title.ToIdentifier(),
                                                     DateTime.Now.ToString("yyyyMMdd_HHmmss"));
 
-                var artifactDirectory = Path.Combine(Directory.GetCurrentDirectory(), "testresults");
+                var artifactDirectory = Path.Combine("C:\\dev\\CoreProjectFramework\\", "Failed_Test_Screenshot");
                 if (!Directory.Exists(artifactDirectory))
                     Directory.CreateDirectory(artifactDirectory);
 
