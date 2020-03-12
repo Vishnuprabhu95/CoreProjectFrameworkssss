@@ -12,33 +12,33 @@ namespace AutomationTest.Pages
 {
     internal class HomePage : BasePage
     {
-        //public HomePage(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public HomePage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
 
         private IWebElement BestSellerEle()
         {
-             return DriverContext.Driver.FindElement(By.XPath("//a[text()='Best Sellers']")); 
+             return _parallelConfig.Driver.FindElement(By.XPath("//a[text()='Best Sellers']")); 
         }
         
         private IWebElement NewReleaseEle
         {
-           get { return DriverContext.Driver.FindElement(By.XPath("//*[@id='nav-xshop']/a[3]"));  }
+           get { return _parallelConfig.Driver.FindElement(By.XPath("//*[@id='nav-xshop']/a[3]"));  }
         }
 
         private IWebElement SearchEle
         {
-            get { return DriverContext.Driver.FindElement(By.Id("twotabsearchtextbox")); }
+            get { return _parallelConfig.Driver.FindElement(By.Id("twotabsearchtextbox")); }
         }
 
         private IWebElement SearchButtonEle
         {
-            get { return DriverContext.Driver.FindElement(By.ClassName("nav-input")); }
+            get { return _parallelConfig.Driver.FindElement(By.ClassName("nav-input")); }
         }
 
         private IWebElement NoResultEle
         {
-            get { return DriverContext.Driver.FindElement(By.XPath("//*[@id='search']/div[1]/div[2]/div/span[3]/span/div/div/div[1]/span[1]")); }
+            get { return _parallelConfig.Driver.FindElement(By.XPath("//*[@id='search']/div[1]/div[2]/div/span[3]/span/div/div/div[1]/span[1]")); }
         }
         //[FindsBy(How = How.XPath, Using = "//*[@id='nav-xshop']/a[1]")]
         //private IWebElement BestSellerEle { get; set; }
@@ -58,13 +58,13 @@ namespace AutomationTest.Pages
         public BestSellerPage ClickBestSellerEle()
         {
             BestSellerEle().Click();
-            return new BestSellerPage();
+            return new BestSellerPage(_parallelConfig);
         }
 
         public BestSellerPage ClickNewReleaseEle()
         {
             NewReleaseEle.Click();
-            return new BestSellerPage();
+            return new BestSellerPage(_parallelConfig);
         }
 
         public void Search(string term)
@@ -75,7 +75,7 @@ namespace AutomationTest.Pages
 
         public bool NoResultEleDisplayed()
         {
-            WebDriverWait wait = new WebDriverWait(DriverContext.Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(_parallelConfig.Driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='search']/div[1]/div[2]/div/span[3]/span/div/div/div[1]/span[1]")));
             return NoResultEle.Displayed;
         }

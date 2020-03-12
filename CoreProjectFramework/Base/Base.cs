@@ -11,26 +11,26 @@ namespace AutoFramework.Base
 {
     public class Base
     {
-        public BasePage CurrentPage
-        {
-            get
-            {
-                return (BasePage)ScenarioContext.Current["currentPage"];
-            }
-            set
-            {
-                ScenarioContext.Current["currentPage"] = value;
-            }
-        }
-
-        //public readonly ParallelConfig _parallelConfig;
-
-        //public Base(ParallelConfig parallelConfig)
+        //public BasePage CurrentPage
         //{
-        //    _parallelConfig = parallelConfig;
+        //    get
+        //    {
+        //        return (BasePage)ScenarioContext.Current["currentPage"];
+        //    }
+        //    set
+        //    {
+        //        ScenarioContext.Current["currentPage"] = value;
+        //    }
         //}
 
-        public IWebDriver _driver { get; set; }
+        public readonly ParallelConfig _parallelConfig;
+
+        public Base(ParallelConfig parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
+
+        //public IWebDriver _driver { get; set; }
 
         protected TPage GetInstance<TPage>() where TPage : BasePage, new()
         {

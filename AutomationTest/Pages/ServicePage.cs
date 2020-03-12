@@ -11,9 +11,9 @@ namespace AutomationTest.Pages
 {
     internal class ServicePage : BasePage
     {
-        //public ServicePage(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public ServicePage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
 
         [FindsBy(How = How.CssSelector, Using = ".help-content")]
         private IWebElement AccountSettingEle { get; set; }

@@ -13,21 +13,21 @@ namespace AutomationTest.Pages
 {
     internal class BestSellerPage : BasePage
     {
-        //public BestSellerPage(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public BestSellerPage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
 
         //[FindsBy(How = How.CssSelector, Using = "#zg_banner_text_wrapper")]
         //private IWebElement BestSellerTitleEle { get; set; }
 
         private IWebElement BestSellerTitleEle()
         {
-            return DriverContext.Driver.FindElement(By.CssSelector("#zg_banner_text_wrapper"));
+            return _parallelConfig.Driver.FindElement(By.CssSelector("#zg_banner_text_wrapper"));
         }
 
         public string IsBestSellerEleTitleDisplayed()
         {
-            WebDriverWait wait = new WebDriverWait(DriverContext.Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(_parallelConfig.Driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#zg_banner_text_wrapper")));
             return BestSellerTitleEle().GetLinkText();
         }

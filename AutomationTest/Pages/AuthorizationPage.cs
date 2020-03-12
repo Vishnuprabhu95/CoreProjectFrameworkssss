@@ -11,9 +11,9 @@ namespace AutomationTest.Pages
 {
     internal class AuthorizationPage : BasePage
     {
-        //public AuthorizationPage(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public AuthorizationPage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
 
         ////Intialize page
         //public AuthorizationPage(IWebDriver driver) : base(driver)
@@ -28,7 +28,7 @@ namespace AutomationTest.Pages
         public ServicePage ServiceEleClick()
         {
             ServiceEle.Click();
-            return new ServicePage();
+            return new ServicePage(_parallelConfig);
         }
 
     }

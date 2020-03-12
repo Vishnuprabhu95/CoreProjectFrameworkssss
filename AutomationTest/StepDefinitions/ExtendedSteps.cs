@@ -12,23 +12,23 @@ namespace AutomationTest.Scenarios
     [Binding]
     public class ExtendedSteps : BaseStep
     {
-        //private readonly ParallelConfig _parallelConfig;
-        //public ExtendedSteps(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //    _parallelConfig = parallelConfig;
-        //}
+        private readonly ParallelConfig _parallelConfig;
+        public ExtendedSteps(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
 
 
         [Given(@"the user is on application home page")]
         public void GivenTheUserIsOnApplicationHomePage()
         {
             NavigateSite();
-            CurrentPage = new HomePage();
+            _parallelConfig.CurrentPage = new HomePage(_parallelConfig);
         }
 
         public void NavigateSite()
         {
-            DriverContext.Driver.Navigate().GoToUrl(Settings.AUT);
+            _parallelConfig.Driver.Navigate().GoToUrl(Settings.AUT);
         }
     }
 }

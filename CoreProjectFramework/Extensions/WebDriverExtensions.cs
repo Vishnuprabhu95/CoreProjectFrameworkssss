@@ -17,8 +17,8 @@ namespace AutoFramework.Extensions
         {
             driver.WaitForCondition(dri =>
             {
-                string state = dri.ExecuteJs("return document.readyState").ToString();
-                //string state = ((IJavaScriptExecutor)dri).ExecuteScript("return document.readyState").ToString();
+                //string state = dri.ExecuteJs("return document.readyState").ToString();
+                string state = ((IJavaScriptExecutor)dri).ExecuteScript("return document.readyState").ToString();
                 return state == "complete";
             }, 10);
         }
@@ -50,10 +50,10 @@ namespace AutoFramework.Extensions
         }
 
 
-        internal static object ExecuteJs(this IWebDriver driver, string script)
-        {
-            return ((IJavaScriptExecutor)DriverContext.Driver).ExecuteScript(script);
-        }
+        //internal static object ExecuteJs(this IWebDriver driver, string script)
+        //{
+        //    return ((IJavaScriptExecutor)DriverContext.Driver).ExecuteScript(script);
+        //}
 
 
 

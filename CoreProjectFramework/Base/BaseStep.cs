@@ -14,8 +14,8 @@ namespace AutoFramework.Base
         //{
         //    DriverContext.Browser.GoToUrl(Settings.AUT);
         //}
-        //public BaseStep(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public BaseStep(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
     }
 }

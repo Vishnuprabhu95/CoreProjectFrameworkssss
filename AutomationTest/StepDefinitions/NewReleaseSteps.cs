@@ -9,19 +9,19 @@ using AutomationTest.Pages;
 namespace AutomationTest.Scenarios.NewRelease.StepDefinition
 {
     [Binding]
-    public class NewReleaseSteps : BaseStep
+    public class NewReleaseSteps : BaseStep    
     {
+        private readonly ParallelConfig _parallelConfig;
+        public NewReleaseSteps(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
+
         [When(@"the user clicks new release tab")]
         public void WhenTheUserClicksNewReleaseTab()
         {
-            CurrentPage.As<HomePage>().ClickNewReleaseEle();
+            _parallelConfig.CurrentPage.As<HomePage>().ClickNewReleaseEle();
         }
-
-
-        //private readonly ParallelConfig _parallelConfig;
-        //public NewReleaseSteps(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //    _parallelConfig = parallelConfig;
-        //}
+        
     }
 }

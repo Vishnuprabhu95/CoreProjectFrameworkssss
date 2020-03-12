@@ -21,9 +21,9 @@ namespace AutomationTest
     [Binding]
     public class HookInitialize : TestInitializeHook
     {
-        //private readonly ParallelConfig _parallelConfig;
-        //private readonly FeatureContext _featureContext;
-        //private readonly ScenarioContext _scenarioContext;
+        private readonly ParallelConfig _parallelConfig;
+        private readonly FeatureContext _featureContext;
+        private readonly ScenarioContext _scenarioContext;
 
 
         //  public HookInitialize() : base(BrowserType.Chrome)
@@ -35,12 +35,12 @@ namespace AutomationTest
         private static ExtentTest scenario;
         private static AventStack.ExtentReports.ExtentReports extent;
 
-        //public HookInitialize(ParallelConfig parallelConfig, FeatureContext featureContext, ScenarioContext scenarioContext) : base(parallelConfig)
-        //{
-        //    _parallelConfig = parallelConfig;
-        //    _featureContext = featureContext;
-        //    _scenarioContext = scenarioContext;
-        //}
+        public HookInitialize(ParallelConfig parallelConfig, FeatureContext featureContext, ScenarioContext scenarioContext) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+            _featureContext = featureContext;
+            _scenarioContext = scenarioContext;
+        }
 
         //private static KlovReporter klov;
 
@@ -92,11 +92,11 @@ namespace AutomationTest
             ////            }
 
 
-            //var stepName = ScenarioContext.Current.StepContext.StepInfo.Text;
-            //var featureName = FeatureContext.Current.FeatureInfo.Title;
-            //var scenarioName = ScenarioContext.Current.ScenarioInfo.Title;
+            var stepName = _scenarioContext.StepContext.StepInfo.Text;
+            var featureName = _featureContext.FeatureInfo.Title;
+            var scenarioName = _scenarioContext.ScenarioInfo.Title;
 
-            var stepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
+            var stepType = _scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
 
             //Console.WriteLine(ScenarioContext.Current.TestError);
             //Console.WriteLine(ScenarioContext.Current.ScenarioExecutionStatus);
@@ -105,25 +105,25 @@ namespace AutomationTest
             //MethodInfo Getter = PInfo.GetGetMethod(nonPublic: true);
             //Object TestResult = Getter.Invoke(ScenarioContext.Current, null);
 
-            if (ScenarioContext.Current.ScenarioExecutionStatus.ToString().Contains("OK"))
+            if (_scenarioContext.ScenarioExecutionStatus.ToString().Contains("OK"))
             {
                 if (stepType == "Given")
-                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+                    scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "When")
-                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
+                    scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "Then")
-                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
+                    scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text);
                 else if (stepType == "And")
-                    scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text);
+                    scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text);
             }
             else 
             {
                 if (stepType == "Given")
-                    scenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException);
+                    scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.InnerException);
                 else if (stepType == "When")
-                    scenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException);
+                    scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.InnerException);
                 else if (stepType == "Then")
-                    scenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message);
+                    scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message);
                 //else if (stepType == "And")
                 //    scenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException);
             }
@@ -145,8 +145,8 @@ namespace AutomationTest
         [AfterScenario]
         public void Close()
         {
-            DriverContext.Driver.Close();
-            DriverContext.Driver.Dispose();
+            _parallelConfig.Driver.Close();
+            _parallelConfig.Driver.Dispose();
         }
 
         [BeforeScenario]
@@ -155,14 +155,16 @@ namespace AutomationTest
             //HookInitialize init = new HookInitialize();
             //TestInitializeHook init = new TestInitializeHook();
             InitializeSettings();
-            scenario = featureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);       
+
+            featureName = extent.CreateTest<Feature>(_featureContext.FeatureInfo.Title);
+            scenario = featureName.CreateNode<Scenario>(_scenarioContext.ScenarioInfo.Title);
 
         }
-        [BeforeFeature]
-        public static void BeforeFeature()
-        {
-            featureName = extent.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
-        }
+        //[BeforeFeature]
+        //public void BeforeFeature()
+        //{
+            
+        //}
 
         [BeforeTestRun]
         public static void InitializeReport()
@@ -170,7 +172,7 @@ namespace AutomationTest
             //Initialize Extent report before test start
             string _logFileName = string.Format("{0:yyyy-dd-M--HH-mm-ss}", DateTime.Now);
 
-            string dir = @"C:\\dev\\ExtentReport\\ER--"+ _logFileName;
+            string dir = @"C:\\dev\\ExtentReport\\TestResults\\ER--" + _logFileName;
 
             if (Directory.Exists(dir))
             {
@@ -182,7 +184,7 @@ namespace AutomationTest
                 
             }
 
-            var htmlReporter = new ExtentHtmlReporter(@"C:\\dev\\CoreProjectFramework\\ExtentReport\\ER--"+ _logFileName + "\\");
+            var htmlReporter = new ExtentHtmlReporter(@"C:\\dev\\CoreProjectFramework\\TestResults\\ExtentReport\\ER--" + _logFileName + "\\");
             htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Dark;
             //Attach report to reporter
             extent = new AventStack.ExtentReports.ExtentReports();
@@ -209,9 +211,9 @@ namespace AutomationTest
         [AfterStep]
         public void AfterWebTest()
         {
-            if (!ScenarioContext.Current.ScenarioExecutionStatus.ToString().Contains("OK"))
+            if (!_scenarioContext.ScenarioExecutionStatus.ToString().Contains("OK"))
             {
-                TakeScreenshot(DriverContext.Driver);
+                TakeScreenshot(_parallelConfig.Driver);
             }
         }
 
@@ -221,11 +223,11 @@ namespace AutomationTest
             try
             {
                 string fileNameBase = string.Format("error_{0}_{1}_{2}",
-                                                    FeatureContext.Current.FeatureInfo.Title.ToIdentifier(),
-                                                    ScenarioContext.Current.ScenarioInfo.Title.ToIdentifier(),
+                                                    _featureContext.FeatureInfo.Title.ToIdentifier(),
+                                                    _scenarioContext.ScenarioInfo.Title.ToIdentifier(),
                                                     DateTime.Now.ToString("yyyyMMdd_HHmmss"));
 
-                var artifactDirectory = Path.Combine("C:\\dev\\CoreProjectFramework\\", "Failed_Test_Screenshot");
+                var artifactDirectory = Path.Combine("C:\\dev\\CoreProjectFramework\\TestResults\\", "Failed_Test_Screenshot");
                 if (!Directory.Exists(artifactDirectory))
                     Directory.CreateDirectory(artifactDirectory);
 

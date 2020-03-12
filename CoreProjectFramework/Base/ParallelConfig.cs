@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Remote;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace AutoFramework.Base
 {
     public class ParallelConfig
     {
-        public RemoteWebDriver Driver { get; set; }
+        public IWebDriver Driver { get; set; }
 
         public BasePage CurrentPage { get; set; }
     }

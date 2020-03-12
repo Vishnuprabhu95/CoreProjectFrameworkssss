@@ -10,7 +10,10 @@ namespace AutoFramework.Base
 {
     public abstract class BasePage : Base
     {
-     
+        public BasePage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
+
         //public BasePage(ParallelConfig parallelConfig) : base(parallelConfig) 
         //{
         //     //PageFactory.InitElements(DriverContext.Driver, this);

@@ -1,20 +1,14 @@
 ﻿using AutoFramework.Config;
-using AutoFramework.Helpers;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Remote;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoFramework.Base
 {
     public class TestInitializeHook : BaseStep
     {
+
         //public readonly BrowserType Browser;
 
         //public TestInitializeHook(BrowserType browser)
@@ -22,12 +16,12 @@ namespace AutoFramework.Base
         //    Browser = browser;
         //}
 
-        //public readonly ParallelConfig _parallelConfig;
+        public readonly ParallelConfig _parallelConfig;
 
-        //public TestInitializeHook(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //    _parallelConfig = parallelConfig;
-        //}
+        public TestInitializeHook(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+            _parallelConfig = parallelConfig;
+        }
 
 
         public void InitializeSettings()
@@ -98,12 +92,12 @@ namespace AutoFramework.Base
             switch (browserType)
             {
                 case BrowserType.InternetExplorer:
-                    DriverContext.Driver = new InternetExplorerDriver();
+                    _parallelConfig.Driver = new InternetExplorerDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
                     //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 case BrowserType.Firefox:
-                    DriverContext.Driver = new FirefoxDriver();
+                    _parallelConfig.Driver = new FirefoxDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
                     //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
@@ -114,11 +108,11 @@ namespace AutoFramework.Base
                     //var binary = new ChromeDriver(@"C:\Users\VISHNU\Downloads\chromedriver_win32 (1)\chromedriver.exe");
                     ////var profile = new ChromeProfile();                         
 
-                    DriverContext.Driver = new ChromeDriver();
+                    _parallelConfig.Driver = new ChromeDriver();
                     //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;
                 default:
-                    DriverContext.Driver = new ChromeDriver();
+                    _parallelConfig.Driver = new ChromeDriver();
                     //DriverContext.Browser = new Browser(_parallelConfig.Driver);
                     //DriverContext.Browser = new Browser(DriverContext.Driver);
                     break;

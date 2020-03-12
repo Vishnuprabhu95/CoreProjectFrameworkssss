@@ -20,7 +20,7 @@ namespace AutomationTest.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [TechTalk.SpecRun.FeatureAttribute("NewRelease", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="Features\\NewReleases.feature", SourceLine=0)]
+        "f two numbers", SourceFile="Features\\NewRelease.feature", SourceLine=0)]
     public partial class NewReleaseFeature
     {
         
@@ -28,7 +28,7 @@ namespace AutomationTest.Features
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "NewReleases.feature"
+#line 1 "NewRelease.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]

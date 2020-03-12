@@ -12,9 +12,9 @@ namespace AutomationTest.Pages
 {
     internal class LoginPage : BasePage
     {
-        //public LoginPage(ParallelConfig parallelConfig) : base(parallelConfig)
-        //{
-        //}
+        public LoginPage(ParallelConfig parallelConfig) : base(parallelConfig)
+        {
+        }
 
         ////Intialize page
         //public LoginPage(IWebDriver driver) : base(driver)
@@ -38,7 +38,7 @@ namespace AutomationTest.Pages
 
         public void userName(string user)
         {
-            DriverContext.Driver.FindElement(By.Id("nav-signin-tooltip")).Click();
+            _parallelConfig.Driver.FindElement(By.Id("nav-signin-tooltip")).Click();
             UserNameEle.SendKeys(user);
         }
         public void continueClick()
@@ -52,7 +52,7 @@ namespace AutomationTest.Pages
         public AuthorizationPage signIn()
         {
             signInEle.Click();
-            return new AuthorizationPage();
+            return new AuthorizationPage(_parallelConfig);
         }
 
     }

@@ -9,21 +9,18 @@ namespace AutoFramework.Base
 {
     public class Browser
     {
-        //private readonly DriverContext driverContext;
+        private readonly DriverContext driverContext;
 
-        private readonly IWebDriver _driver;
+        //private readonly IWebDriver _driver;
 
-        //public Browser(IWebDriver driver)
-        //{
-        //    _driver = driver;
-        //}
+        public Browser(DriverContext driver)
+        {
+            driverContext = driver;
+        }
 
         public BrowserType Type { get; set; }
 
-        public void GoToUrl(string url)
-        {
-            DriverContext.Driver.Url = url;
-        }
+      
     }
 
     public enum BrowserType
